@@ -1,1 +1,26 @@
+using System;
+using System.IO;
+
+namespace Lab12_q1
+{
+    class Program
+    {
+        static void Main()
+        {
+            try
+            {
+                Console.WriteLine("Enter file path");
+                string filePath = Console.ReadLine();
+
+                StreamReader sr = new StreamReader(filePath);
+                Console.WriteLine(sr.ReadToEnd());
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Unexpected error occured, please try again.");
+            }
+            
+        }
+    }
+}
 
