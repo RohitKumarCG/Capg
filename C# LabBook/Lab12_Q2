@@ -3,6 +3,13 @@ using System.IO;
 
 namespace Lab12_Q2
 {
+    class InvalidExtention : Exception
+    {
+        public InvalidExtention(string message) : base(message)
+        {
+
+        }
+    }
     class Program
     {
         static void Main()
@@ -11,12 +18,25 @@ namespace Lab12_Q2
             {
                 Console.WriteLine("Enter Source Filepath");
                 string sourceFilepath = Console.ReadLine();
-
+                string extention1 = sourceFilepath.Substring(sourceFilepath.Length - 3);
+                if(extention1 != "txt")
+                {
+                    throw new InvalidExtention("Expected .txt as extention");
+                }
                 Console.WriteLine("Enter Destination Filepath");
                 string destFilepath = Console.ReadLine();
+                string extention2 = destFilepath.Substring(destFilepath.Length - 3);
+                if (extention2 != "txt")
+                {
+                    throw new InvalidExtention("Expected .txt as extention");
+                }
 
                 FileInfo fi = new FileInfo(sourceFilepath);
                 fi.CopyTo(destFilepath);
+            }
+            catch(InvalidExtention)
+            {
+                Console.WriteLine("Expected .txt as extention");
             }
             catch (Exception)
             {
