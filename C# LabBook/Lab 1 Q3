@@ -1,0 +1,47 @@
+using System;
+
+namespace Lab_1_Q3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int input = 0;
+            do
+            {
+                if (args.Length == 0)
+                {
+                    Console.WriteLine("Please enter a numeric argument. Press 6 to exit");
+                }
+                input = Convert.ToInt32(Console.ReadLine());
+                //input = int.Parse(args[0]);
+                switch(input)
+                {
+                    case 1:
+                        Console.WriteLine("You have entered 1");
+                        break;
+                    case 2:
+                        Console.WriteLine("You have entered 2");
+                        break;
+                    case 3:
+                        Console.WriteLine("You have entered 3");
+                        break;
+                    case 4:
+                        Console.WriteLine("You have entered 4");
+                        break;
+                    case 5:
+                        Console.WriteLine("You have entered 5");
+                        break;
+                    case 6:
+                        break;
+                    default:
+                        Console.WriteLine("Wrong value Entered, should be between 1 and 5");
+                        break;
+                }
+            } while (input != 6);
+                
+
+        }
+    }
+}
+    
