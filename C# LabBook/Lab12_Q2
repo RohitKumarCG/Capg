@@ -1,0 +1,27 @@
+using System;
+using System.IO;
+
+namespace Lab12_Q2
+{
+    class Program
+    {
+        static void Main()
+        {
+            try
+            {
+                Console.WriteLine("Enter Source Filepath");
+                string sourceFilepath = Console.ReadLine();
+
+                Console.WriteLine("Enter Destination Filepath");
+                string destFilepath = Console.ReadLine();
+
+                FileInfo fi = new FileInfo(sourceFilepath);
+                fi.CopyTo(destFilepath);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Unexpected error occured, please try again.");
+            }
+        }
+    }
+}
