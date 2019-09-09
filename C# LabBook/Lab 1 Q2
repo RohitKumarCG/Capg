@@ -1,0 +1,51 @@
+using System;
+
+namespace Lab_1_Q2
+{
+    class ArithmeticOperations
+    {
+        public int Add(int a, int b)
+        {
+            return a + b;
+        }
+        public double Add(double a, double b)
+        {
+            return a + b;
+        }
+
+
+        static void Main()
+        {
+            ArithmeticOperations arithmeticOperations = new ArithmeticOperations();
+            int choice = 1;
+            do
+            {
+                Console.WriteLine("Enter your choice");
+                Console.WriteLine("Press 1 to add");
+                Console.WriteLine("Press 2 to subtract");
+                Console.WriteLine("Press 3 to multiply");
+                Console.WriteLine("Press 4 to divide");
+                Console.WriteLine("Press 5 to modulus");
+                Console.WriteLine("Press 6 to exit");
+                choice = Convert.ToInt32(Console.ReadLine());
+                switch (choice)
+                {
+                    case 1:
+                        Console.WriteLine("Enter 1st Number:");
+                        int x = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Enter 2st Number:");
+                        int y = Convert.ToInt32(Console.ReadLine());
+                        int result = arithmeticOperations.Add(x, y);
+                        Console.WriteLine("Result is " + result);
+                        break;
+
+                    case 6:
+                        break;
+
+                    default: Console.WriteLine("Invalid Choice, Enter Again");
+                        break;
+                }
+            } while (choice != 6);
+        }
+    }
+}
