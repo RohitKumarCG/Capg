@@ -1,0 +1,121 @@
+using System;
+
+namespace Lab_1_Q1
+{
+    class Employee
+    {
+        private string _employeeID;
+        private string _employeeName;
+        private string _address;
+        private string _city;
+        private string _department;
+        private int _salary;
+
+        public string EmployeeID
+        {
+            set
+            {
+                _employeeID = value;
+            }
+            get
+            {
+                return _employeeID;
+            }
+        }
+
+        public string EmployeeName
+        {
+            set
+            {
+                _employeeName = value;
+            }
+            get
+            {
+                return _employeeName;
+            }
+        }
+
+        public string Address
+        {
+            set
+            {
+                _address = value;
+            }
+            get
+            {
+                return _address;
+            }
+        }
+
+        public string City
+        {
+            set
+            {
+                _city = value;
+            }
+            get
+            {
+                return _city;
+            }
+        }
+
+
+        public string Department
+        {
+            set
+            {
+                _department = value;
+            }
+            get
+            {
+                return _department;
+            }
+        }
+
+        public int Salary
+        {
+            set
+            {
+                _salary = value;
+            }
+            get
+            {
+                return _salary;
+            }
+        }
+
+        static void Main()
+        {
+            Employee[] array = new Employee[10];
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = new Employee();
+
+                Console.WriteLine("\nEmployee "+(i+1)+ " ID:");
+                array[i].EmployeeID = Console.ReadLine();
+
+                Console.WriteLine("Employee " + (i + 1) + " Name:");
+                array[i].EmployeeName = Console.ReadLine();
+
+                Console.WriteLine("Employee " + (i + 1) + " Address:");
+                array[i].Address = Console.ReadLine();
+
+                Console.WriteLine("Employee " + (i + 1) + " City:");
+                array[i].City = Console.ReadLine();
+
+                Console.WriteLine("Employee " + (i + 1) + " Department:");
+                array[i].Department = Console.ReadLine();
+
+                Console.WriteLine("Employee " + (i + 1) + " Salary:");
+                array[i].Salary = Convert.ToInt32(Console.ReadLine());
+
+            }
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.WriteLine("\nEmployee " + (i+1) + " Details");
+                Console.WriteLine("Employee Name: " + array[i].EmployeeName);
+                Console.WriteLine("Employee Salary: " + array[i].Salary);
+            }
+        }
+    }
+}
