@@ -3,6 +3,14 @@ using System.IO;
 
 namespace Lab12_q1
 {
+    class InvalidExtention : Exception
+    {
+        public InvalidExtention(string message) : base(message)
+        {
+
+        }
+    }
+    
     class Program
     {
         static void Main()
@@ -11,9 +19,17 @@ namespace Lab12_q1
             {
                 Console.WriteLine("Enter file path");
                 string filePath = Console.ReadLine();
-
+                string extention = filepath.Substring(filepath.Length - 3);
+                if(extention != "txt")
+                {
+                    throw new InvalidExtention("Expected .txt as extention");
+                }
                 StreamReader sr = new StreamReader(filePath);
                 Console.WriteLine(sr.ReadToEnd());
+            }
+            catch(InvalidExtention)
+            {
+                Console.WriteLine("Expected .txt as extention");
             }
             catch (Exception)
             {
