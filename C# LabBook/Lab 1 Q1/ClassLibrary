@@ -1,0 +1,40 @@
+using System;
+using ClassLibrary1;
+class program
+{
+
+
+    static void Main()
+    {   
+        Employee[] array = new Employee[10];
+        for (int i = 0; i < array.Length; i++)
+        {
+            array[i] = new Employee();
+
+            Console.WriteLine("\nEmployee " + (i + 1) + " ID:");
+            array[i].EmployeeID = Console.ReadLine();
+
+            Console.WriteLine("Employee " + (i + 1) + " Name:");
+            array[i].EmployeeName = Console.ReadLine();
+
+            Console.WriteLine("Employee " + (i + 1) + " Address:");
+            array[i].Address = Console.ReadLine();
+
+            Console.WriteLine("Employee " + (i + 1) + " City:");
+            array[i].City = Console.ReadLine();
+
+            Console.WriteLine("Employee " + (i + 1) + " Department:");
+            array[i].Department = Console.ReadLine();
+
+            Console.WriteLine("Employee " + (i + 1) + " Salary:");
+            array[i].Salary = Convert.ToInt32(Console.ReadLine());
+
+        }
+        for (int i = 0; i < array.Length; i++)
+        {
+            Console.WriteLine("\nEmployee " + (i + 1) + " Details");
+            Console.WriteLine("Employee Name: " + array[i].EmployeeName);
+            Console.WriteLine("Employee Salary: " + array[i].Salary);
+        }
+    }
+}
