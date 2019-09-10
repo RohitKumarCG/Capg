@@ -13,11 +13,47 @@ namespace Lab_1_Q2
             return a + b;
         }
 
+        public int Subtract(int a, int b)
+        {
+            return a - b;
+        }
+        public double Subtract(double a, double b)
+        {
+            return a - b;
+        }
+
+        public int Multiply(int a, int b)
+        {
+            return a * b;
+        }
+        public double Multiply(double a, double b)
+        {
+            return a * b;
+        }
+
+        public int Divide(int a, int b)
+        {
+            return a / b;
+        }
+        public double Divide(double a, double b)
+        {
+            return a / b;
+        }
+
+        public int Modulus(int a, int b)
+        {
+            return a % b;
+        }
+        public double Modulus(double a, double b)
+        {
+            return a % b;
+        }
 
         static void Main()
         {
             ArithmeticOperations arithmeticOperations = new ArithmeticOperations();
-            int choice = 1;
+            int choice;
+            double x, y;
             do
             {
                 Console.WriteLine("Enter your choice");
@@ -32,11 +68,87 @@ namespace Lab_1_Q2
                 {
                     case 1:
                         Console.WriteLine("Enter 1st Number:");
-                        int x = Convert.ToInt32(Console.ReadLine());
+                        x = double.Parse(Console.ReadLine());
                         Console.WriteLine("Enter 2st Number:");
-                        int y = Convert.ToInt32(Console.ReadLine());
-                        int result = arithmeticOperations.Add(x, y);
-                        Console.WriteLine("Result is " + result);
+                        y = double.Parse(Console.ReadLine());
+                        if((Math.Floor(x) == x) && (Math.Floor(y) == y))
+                        {
+                            int result = arithmeticOperations.Add((int)x, (int)y);
+                            Console.WriteLine("Result is " + result);
+                        }
+                        else
+                        {
+                            double result = arithmeticOperations.Add(x, y);
+                            Console.WriteLine("Result is " + result);
+                        }
+                        break;
+
+                    case 2:
+                        Console.WriteLine("Enter 1st Number:");
+                        x = double.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter 2st Number:");
+                        y = double.Parse(Console.ReadLine());
+                        if ((Math.Floor(x) == x) && (Math.Floor(y) == y))
+                        {
+                            int result = arithmeticOperations.Subtract((int)x, (int)y);
+                            Console.WriteLine("Result is " + result);
+                        }
+                        else
+                        {
+                            double result = arithmeticOperations.Subtract(x, y);
+                            Console.WriteLine("Result is " + result);
+                        }
+                        break;
+
+                    case 3:
+                        Console.WriteLine("Enter 1st Number:");
+                        x = double.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter 2st Number:");
+                        y = double.Parse(Console.ReadLine());
+                        if ((Math.Floor(x) == x) && (Math.Floor(y) == y))
+                        {
+                            int result = arithmeticOperations.Multiply((int)x, (int)y);
+                            Console.WriteLine("Result is " + result);
+                        }
+                        else
+                        {
+                            double result = arithmeticOperations.Multiply(x, y);
+                            Console.WriteLine("Result is " + result);
+                        }
+                        break;
+
+                    case 4:
+                        Console.WriteLine("Enter 1st Number:");
+                        x = double.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter 2st Number:");
+                        y = double.Parse(Console.ReadLine());
+                        if ((Math.Floor(x) == x) && (Math.Floor(y) == y))
+                        {
+                            double result = arithmeticOperations.Divide((int)x, (int)y);
+                            Console.WriteLine("Result is " + result);
+                        }
+                        else
+                        {
+                            double result = arithmeticOperations.Divide(x, y);
+                            Console.WriteLine("Result is " + result);
+                        }
+                        break;
+
+                    case 5:
+                        Console.WriteLine("Enter 1st Number:");
+                        x = double.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter 2st Number:");
+                        y = double.Parse(Console.ReadLine());
+                        if ((Math.Floor(x) == x) && (Math.Floor(y) == y))
+                        {
+                            int result = arithmeticOperations.Modulus((int)x, (int)y);
+                            Console.WriteLine("Result is " + result);
+                        }
+                        else
+                        {
+                            double result = arithmeticOperations.Modulus(x, y);
+                            Console.WriteLine("Result is " + result);
+                        }
                         break;
 
                     case 6:
