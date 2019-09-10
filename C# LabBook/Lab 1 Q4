@@ -1,0 +1,64 @@
+using System;
+
+namespace Lab_1_Q4
+{
+    class SchoolDemo
+    {
+        private int _rollNumber;
+        private string _studentName;
+        private byte _age;
+        private char _gender;
+        private DateTime _dateOFBirth;
+        private string address;
+        private float percentage;
+
+        public int RollNumber { get => _rollNumber; set => _rollNumber = value; }
+        public string StudentName { get => _studentName; set => _studentName = value; }
+        public byte Age { get => _age; set => _age = value; }
+        public char Gender { get => _gender; set => _gender = value; }
+        public DateTime DateOFBirth { get => _dateOFBirth; set => _dateOFBirth = value; }
+        public string Address { get => address; set => address = value; }
+        public float Percentage { get => percentage; set => percentage = value; }
+
+        public SchoolDemo()
+        {
+            RollNumber = 0;
+            StudentName = "";
+            Age = 0;
+            Gender = 'M';
+            DateOFBirth = Convert.ToDateTime("01/01/0001");
+            Address = "";
+            Percentage = 0;
+        }
+
+    }
+    class program
+    {
+        static void Main()
+        {
+            SchoolDemo schoolDemo = new SchoolDemo();
+            Console.WriteLine("Enter Roll No:");
+            schoolDemo.RollNumber = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter Name:");
+            schoolDemo.StudentName = Console.ReadLine();
+            Console.WriteLine("Enter Age:");
+            schoolDemo.Age = byte.Parse(Console.ReadLine());
+            Console.WriteLine("Enter Gender");
+            schoolDemo.Gender = char.Parse(Console.ReadLine());
+            Console.WriteLine("Enter DateofBirth(YYYY-MM-DD)");
+            schoolDemo.DateOFBirth = DateTime.Parse(Console.ReadLine());
+            Console.WriteLine("Enter Address");
+            schoolDemo.Address = Console.ReadLine();
+            Console.WriteLine("Enter Percentage");
+            schoolDemo.Percentage = float.Parse(Console.ReadLine());
+
+            Console.WriteLine("Roll No: " + schoolDemo.RollNumber);
+            Console.WriteLine("Name: " + schoolDemo.StudentName);
+            Console.WriteLine("Age: " + schoolDemo.Age);
+            Console.WriteLine("Gender: " + schoolDemo.Gender);
+            Console.WriteLine("Date Of Birth: " + schoolDemo.DateOFBirth);
+            Console.WriteLine("Address: " + schoolDemo.Address);
+            Console.WriteLine("Percentage: " + schoolDemo.Percentage);
+        }
+    }
+}
