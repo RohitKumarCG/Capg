@@ -1,200 +1,166 @@
 using System;
+using System.IO;
 
-namespace Lab3_Q1
+namespace ABC_Corp
 {
-    class InvalidMarksLimit : Exception
+    class InvalidCreditLimit : Exception
     {
-        public InvalidMarksLimit(string message) : base(message)
+        public InvalidCreditLimit(string message) : base(message)
         {
 
         }
     }
-
-    class Participants
+    class Customer
     {
-        private string _empID;
-        private string _name;
-        private static string _companyName;
-        private int _foundationMarks;
-        private int _webBasicMarks;
-        private int _dotNetMarks;
-        private int _totalMarks;
-        private int _obtainedMarks;
-        private double _percentage;
+        private string _customerID;
+        private string _customerName;
+        private string _address;
+        private string _city;
+        private string _phone;
+        private int _creditLimit;
 
-        public string EmpID
+        public string CustomerID
         {
             set
             {
-                _empID = value;
+                _customerID = value;
             }
             get
             {
-                return _empID;
+                return _customerID;
             }
         }
-        public string Name
+
+        public string CustomerName
         {
             set
             {
-                _name = value;
+                _customerName = value;
             }
             get
             {
-                return _name;
+                return _customerName;
             }
         }
-        public static string CompanyName
+
+        public string Address
         {
             set
             {
-                _companyName = value;
+                _address = value;
             }
             get
             {
-                return _companyName;
+                return _address;
             }
         }
-        public int FoundationMarks
+
+        public string City
         {
             set
             {
-                if((value <= 100) && (value >= 0))
+                _city = value;
+            }
+            get
+            {
+                return _city;
+            }
+        }
+
+
+        public string Phone
+        {
+            set
+            {
+                _phone = value;
+            }
+            get
+            {
+                return _phone;
+            }
+        }
+
+        public int CreditLimit
+        {
+            set
+            {
+                if (value < 50000)
                 {
-                    _foundationMarks = value;
+                    _creditLimit = value;
                 }
                 else
                 {
-                    throw new InvalidMarksLimit("Marks should be between 0 and 100");
-
+                    throw new InvalidCreditLimit("Credit Limit Invalid!! Cannot exceed 50000");
                 }
             }
             get
             {
-                return _foundationMarks;
+                return _creditLimit;
             }
-        }
-        public int WebBasicMarks
-        {
-            set
-            {
-                if ((value <= 100) && (value >= 0))
-                {
-                    _webBasicMarks = value;
-                }
-                else
-                {
-                    throw new InvalidMarksLimit("Marks should be between 0 and 100");
-
-                }
-            }
-            get
-            {
-                return _webBasicMarks;
-            }
-        }
-        public int DotNetMarks
-        {
-            set
-            {
-                if ((value <= 100) && (value >= 0))
-                {
-                    _dotNetMarks = value;
-                }
-                else
-                {
-                    throw new InvalidMarksLimit("Marks should be between 0 and 100");
-
-                }
-            }
-            get
-            {
-                return _dotNetMarks;
-            }
-        }
-        public int TotalMarks
-        {
-            set
-            {
-                _totalMarks = value;
-            }
-            get
-            {
-                return _totalMarks;
-            }
-        }
-        public int ObtainedMarks
-        {
-            set
-            {
-                _obtainedMarks = value;
-            }
-            get
-            {
-                return _obtainedMarks;
-            }
-        }
-        
-        public Participants()
-        {
-            TotalMarks = 300;
         }
 
-        public Participants(int totalMarks)
+        public Customer()
         {
-            TotalMarks = 300;
+
         }
 
-        static Participants()
+        public Customer(string custID, string custName, string add, string city, string ph, int crLimit)
         {
-            CompanyName = "Corporate University";
+            CustomerID = custID;
+            CustomerName = custName;
+            Address = add;
+            City = city;
+            Phone = ph;
+            CreditLimit = crLimit;
         }
 
-        public int CalcTotalMarksObtained(int marks1, int marks2, int marks3)
-        {
-            
-            return (DotNetMarks + FoundationMarks + WebBasicMarks);
-        }
-
-        public double CalcPercentage(int marks, int total)
-        {
-            return ((marks*100)/total);
-        }
-    }
-
-    class Program
-    {
         static void Main()
         {
             try
             {
-                Participants participants = new Participants();
-                Console.WriteLine("Enter participant's Details");
+                Customer customer = new Customer();
 
-                Console.WriteLine("Enter ID:");
-                participants.EmpID = Console.ReadLine();
+                Console.WriteLine("Customer ID:");
+                customer.CustomerID = Console.ReadLine();
 
-                Console.WriteLine("Enter Name:");
-                participants.Name = Console.ReadLine();
+                Console.WriteLine("Customer Name:");
+                customer.CustomerName = Console.ReadLine();
 
-                Console.WriteLine("Enter Dot Net Marks:");
-                participants.DotNetMarks = int.Parse(Console.ReadLine());
+                Console.WriteLine("Customer Address:");
+                customer.Address = Console.ReadLine();
 
-                Console.WriteLine("Enter foundation Marks:");
-                participants.FoundationMarks = int.Parse(Console.ReadLine());
+                Console.WriteLine("Customer City:");
+                customer.City = Console.ReadLine();
 
-                Console.WriteLine("Enter Web Basic Marks:");
-                participants.WebBasicMarks = int.Parse(Console.ReadLine());
+                Console.WriteLine("Customer Phone:");
+                customer.Phone = Console.ReadLine();
 
-                Console.WriteLine("Emp Name:" + participants.Name);
-                int storeIntermediate = participants.CalcTotalMarksObtained(participants.DotNetMarks, participants.FoundationMarks, participants.WebBasicMarks);
-                //Console.WriteLine(storeIntermediate);
-                Console.WriteLine("Percentage obtained : " + participants.CalcPercentage(storeIntermediate, participants.TotalMarks));
+                Console.WriteLine("Customer Credit Limit:");
+                customer.CreditLimit = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("\nCustomer Details");
+                Console.WriteLine("Customer ID: " + customer.CustomerID);
+                Console.WriteLine("Customer Name: " + customer.CustomerName);
+                Console.WriteLine("Customer Address: " + customer.Address);
+                Console.WriteLine("Customer City: " + customer.City);
+                Console.WriteLine("Customer Phone: " + customer.Phone);
+                Console.WriteLine("Customer Credit Limit: " + customer.CreditLimit);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                Console.WriteLine("Marks should be between 0 and 100"); ;
+                
+                string content = $"\n\n{DateTime.Now}" +
+                    $"\nMessage: {ex.Message}" +
+                    $"\nStack Trace: {ex.StackTrace}" +
+                    $"\nInner Exception: {ex.InnerException?.Message}" +
+                    $"\nType:{ex.GetType().ToString()}";
+
+                StreamWriter sw = new StreamWriter("c:\\Capg\\ABC_Corp_Log.txt", true);
+                sw.Write(content);
+                sw.Close();
+
+                Console.WriteLine(ex.Message);
             }
-        }       
+        }
     }
 }
