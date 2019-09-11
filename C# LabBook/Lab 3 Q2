@@ -1,0 +1,41 @@
+using System;
+
+namespace Lab_3_Q2
+{
+    public class Bird
+    {
+        public string Name;
+        public double MaxHeight;
+
+        public Bird()
+        {
+            this.Name = "Mountain Eagle";
+            this.MaxHeight = 500;
+        }
+        public Bird(string birdname, double max_ht)
+        {
+            this.Name = birdname;
+            this.MaxHeight = max_ht;
+        }
+        public void fly()
+        {
+            Console.WriteLine(this.Name +" is flying at altitude " + this.MaxHeight);
+        }
+        public void fly(double AtHeight)
+        {
+            if (AtHeight <= this.MaxHeight)
+                Console.WriteLine(this.Name + "flying at " + AtHeight.ToString());
+            else
+                Console.WriteLine(this.Name + " cannot fly at " + this.MaxHeight);
+        }
+    }
+    class Program
+    {
+        static void Main()
+        {
+            Bird b = new Bird("Eagle", 200);
+            b.fly();
+            b.fly(300);
+        }
+    }
+}
