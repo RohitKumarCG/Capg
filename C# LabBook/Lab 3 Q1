@@ -2,6 +2,13 @@ using System;
 
 namespace Lab3_Q1
 {
+    class InvalidMarksLimit : Exception
+    {
+        public InvalidMarksLimit(string message) : base(message)
+        {
+
+        }
+    }
 
     class Participants
     {
@@ -52,7 +59,15 @@ namespace Lab3_Q1
         {
             set
             {
-                _foundationMarks = value;
+                if((value <= 100) && (value >= 0))
+                {
+                    _foundationMarks = value;
+                }
+                else
+                {
+                    throw new InvalidMarksLimit("Marks should be between 0 and 100");
+
+                }
             }
             get
             {
@@ -63,7 +78,15 @@ namespace Lab3_Q1
         {
             set
             {
-                _webBasicMarks = value;
+                if ((value <= 100) && (value >= 0))
+                {
+                    _webBasicMarks = value;
+                }
+                else
+                {
+                    throw new InvalidMarksLimit("Marks should be between 0 and 100");
+
+                }
             }
             get
             {
@@ -74,7 +97,15 @@ namespace Lab3_Q1
         {
             set
             {
-                _dotNetMarks = value;
+                if ((value <= 100) && (value >= 0))
+                {
+                    _dotNetMarks = value;
+                }
+                else
+                {
+                    throw new InvalidMarksLimit("Marks should be between 0 and 100");
+
+                }
             }
             get
             {
@@ -135,28 +166,35 @@ namespace Lab3_Q1
     {
         static void Main()
         {
-            Participants participants = new Participants();
-            Console.WriteLine("Enter participant's Details");
+            try
+            {
+                Participants participants = new Participants();
+                Console.WriteLine("Enter participant's Details");
 
-            Console.WriteLine("Enter ID:");
-            participants.EmpID = Console.ReadLine();
+                Console.WriteLine("Enter ID:");
+                participants.EmpID = Console.ReadLine();
 
-            Console.WriteLine("Enter Name:");
-            participants.Name = Console.ReadLine();
+                Console.WriteLine("Enter Name:");
+                participants.Name = Console.ReadLine();
 
-            Console.WriteLine("Enter Dot Net Marks:");
-            participants.DotNetMarks = int.Parse(Console.ReadLine());
+                Console.WriteLine("Enter Dot Net Marks:");
+                participants.DotNetMarks = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Enter foundation Marks:");
-            participants.FoundationMarks = int.Parse(Console.ReadLine());
+                Console.WriteLine("Enter foundation Marks:");
+                participants.FoundationMarks = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Enter Web Basic Marks:");
-            participants.WebBasicMarks = int.Parse(Console.ReadLine());
+                Console.WriteLine("Enter Web Basic Marks:");
+                participants.WebBasicMarks = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Emp Name:" + participants.Name);
-            int storeIntermediate = participants.CalcTotalMarksObtained(participants.DotNetMarks, participants.FoundationMarks, participants.WebBasicMarks);
-            //Console.WriteLine(storeIntermediate);
-            Console.WriteLine("Percentage obtained : " + participants.CalcPercentage(storeIntermediate, participants.TotalMarks));
+                Console.WriteLine("Emp Name:" + participants.Name);
+                int storeIntermediate = participants.CalcTotalMarksObtained(participants.DotNetMarks, participants.FoundationMarks, participants.WebBasicMarks);
+                //Console.WriteLine(storeIntermediate);
+                Console.WriteLine("Percentage obtained : " + participants.CalcPercentage(storeIntermediate, participants.TotalMarks));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }       
     }
 }
