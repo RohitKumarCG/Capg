@@ -1,0 +1,162 @@
+using System;
+
+namespace Lab3_Q1
+{
+
+    class Participants
+    {
+        private string _empID;
+        private string _name;
+        private static string _companyName;
+        private int _foundationMarks;
+        private int _webBasicMarks;
+        private int _dotNetMarks;
+        private int _totalMarks;
+        private int _obtainedMarks;
+        private double _percentage;
+
+        public string EmpID
+        {
+            set
+            {
+                _empID = value;
+            }
+            get
+            {
+                return _empID;
+            }
+        }
+        public string Name
+        {
+            set
+            {
+                _name = value;
+            }
+            get
+            {
+                return _name;
+            }
+        }
+        public static string CompanyName
+        {
+            set
+            {
+                _companyName = value;
+            }
+            get
+            {
+                return _companyName;
+            }
+        }
+        public int FoundationMarks
+        {
+            set
+            {
+                _foundationMarks = value;
+            }
+            get
+            {
+                return _foundationMarks;
+            }
+        }
+        public int WebBasicMarks
+        {
+            set
+            {
+                _webBasicMarks = value;
+            }
+            get
+            {
+                return _webBasicMarks;
+            }
+        }
+        public int DotNetMarks
+        {
+            set
+            {
+                _dotNetMarks = value;
+            }
+            get
+            {
+                return _dotNetMarks;
+            }
+        }
+        public int TotalMarks
+        {
+            set
+            {
+                _totalMarks = value;
+            }
+            get
+            {
+                return _totalMarks;
+            }
+        }
+        public int ObtainedMarks
+        {
+            set
+            {
+                _obtainedMarks = value;
+            }
+            get
+            {
+                return _obtainedMarks;
+            }
+        }
+        
+        public Participants()
+        {
+            TotalMarks = 300;
+        }
+
+        public Participants(int totalMarks)
+        {
+            TotalMarks = 300;
+        }
+
+        static Participants()
+        {
+            CompanyName = "Corporate University";
+        }
+
+        public int CalcTotalMarksObtained(int marks1, int marks2, int marks3)
+        {
+            
+            return (DotNetMarks + FoundationMarks + WebBasicMarks);
+        }
+
+        public double CalcPercentage(int marks, int total)
+        {
+            return ((marks*100)/total);
+        }
+    }
+
+    class Program
+    {
+        static void Main()
+        {
+            Participants participants = new Participants();
+            Console.WriteLine("Enter participant's Details");
+
+            Console.WriteLine("Enter ID:");
+            participants.EmpID = Console.ReadLine();
+
+            Console.WriteLine("Enter Name:");
+            participants.Name = Console.ReadLine();
+
+            Console.WriteLine("Enter Dot Net Marks:");
+            participants.DotNetMarks = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter foundation Marks:");
+            participants.FoundationMarks = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter Web Basic Marks:");
+            participants.WebBasicMarks = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Emp Name:" + participants.Name);
+            int storeIntermediate = participants.CalcTotalMarksObtained(participants.DotNetMarks, participants.FoundationMarks, participants.WebBasicMarks);
+            //Console.WriteLine(storeIntermediate);
+            Console.WriteLine("Percentage obtained : " + participants.CalcPercentage(storeIntermediate, participants.TotalMarks));
+        }       
+    }
+}
