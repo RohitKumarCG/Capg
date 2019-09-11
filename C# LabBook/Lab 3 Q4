@@ -1,0 +1,52 @@
+using System;
+
+namespace Lab_3_Q4
+{
+    class Supplier
+    {
+        private int _supplierID;
+        private string _supplierName;
+        private string _city;
+        private string _phoneNo;
+        private string _email;
+
+        public int SupplierID { get => _supplierID; set => _supplierID = value; }
+        public string SupplierName { get => _supplierName; set => _supplierName = value; }
+        public string City { get => _city; set => _city = value; }
+        public string PhoneNo { get => _phoneNo; set => _phoneNo = value; }
+        public string Email { get => _email; set => _email = value; }
+
+        public void AcceptDetails(Supplier s)
+        {
+            Console.WriteLine("Enter Supplier Details");
+
+            Console.WriteLine("Enter Supplier ID:");
+            SupplierID = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter Supplier Name:");
+            SupplierName = Console.ReadLine();
+            Console.WriteLine("Enter City:");
+            City = Console.ReadLine();
+            Console.WriteLine("Enter phone no:");
+            PhoneNo = Console.ReadLine();
+            Console.WriteLine("Enter Email:");
+            Email = Console.ReadLine();
+        }
+        public void DisplayDetails()
+        {
+            Console.WriteLine("Supplier ID: " + SupplierID);
+            Console.WriteLine("Supplier Name: " + SupplierName);
+            Console.WriteLine("City: " + City);
+            Console.WriteLine("Phone No: " + PhoneNo);
+            Console.WriteLine("Email: " + Email);
+        }
+    }
+    class SupplierTest
+    {
+        static void Main()
+        {
+            Supplier suppler = new Supplier();
+            suppler.AcceptDetails(suppler);
+            suppler.DisplayDetails();
+        }
+    }
+}
