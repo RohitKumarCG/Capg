@@ -1,0 +1,79 @@
+using System;
+using System.Text.RegularExpressions;
+
+namespace RegexExample
+{
+
+    class Customer
+    {
+        private string _customerName;
+        //Customer name should be alphabets only (upper and lower case)
+        private string _email;
+
+        public string CustomerName
+        {
+            set
+            {
+                Regex regex = new Regex("^[a-zA-Z ]*$");
+                bool b = regex.IsMatch(value);
+                if (b == true)
+                {
+                    _customerName = value;
+                }
+                else
+                {
+                    throw new Exception("CustomerName should contain alphabets only");
+                }
+            }
+            get
+            {
+                return _customerName;
+            }
+        }
+        public string Email
+        {
+            set
+            {
+                Regex regex = new Regex(@"^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$");
+                bool b = regex.IsMatch(value);
+                if (b == true)
+                {
+                    _email = value;
+                }
+                else
+                {
+                    throw new Exception("Email format wrong");
+                }
+            }
+            get
+            {
+                return _email;
+            }
+        }
+    }
+
+
+    class Program
+    {
+        static void Main()
+        {
+            try
+            {
+                Customer customer = new Customer();
+                Console.WriteLine("Enter Customer Name:");
+                customer.CustomerName = Console.ReadLine();
+
+                Console.WriteLine("Enter Customer Email:");
+                customer.Email = Console.ReadLine();
+
+                Console.WriteLine("Customer Name is: " + customer.CustomerName);
+                Console.WriteLine("Customer Name is: " + customer.Email);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                
+            }
+        }
+    }
+}
