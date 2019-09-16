@@ -29,7 +29,6 @@ namespace Inventory.PresentationLayer
             }
             Console.WriteLine("******************************************************************");
             Console.WriteLine("\n");
-
             RawMaterialBL.DeleteRawMaterialBL("RM103");
             RawMaterialBL.DeleteRawMaterialBL("RM104");
             foreach (RawMaterial item in rawMaterialList)
@@ -38,7 +37,6 @@ namespace Inventory.PresentationLayer
             }
             Console.WriteLine("******************************************************************");
             Console.WriteLine("\n");
-
             RawMaterial rawMaterial5 = new RawMaterial() { RawMaterialID = "RM101", RawMaterialName = "Mangooo", RawMaterialCode = "MAN" };
             RawMaterialBL.UpdateRawMaterialBL(rawMaterial5);
             foreach (RawMaterial item in rawMaterialList)
@@ -47,15 +45,12 @@ namespace Inventory.PresentationLayer
             }
             Console.WriteLine("******************************************************************");
             Console.WriteLine("\n");
-
             RawMaterial rawMaterial6 = RawMaterialBL.SearchRawMaterialByIDBL("RM101");
             Console.WriteLine(rawMaterial6.RawMaterialID + " " + rawMaterial6.RawMaterialName + " " + rawMaterial6.RawMaterialCode + " ");
-
             RawMaterial rawMaterial7 = RawMaterialBL.SearchRawMaterialByCodeBL("MAN");
             Console.WriteLine(rawMaterial7.RawMaterialID + " " + rawMaterial7.RawMaterialName + " " + rawMaterial7.RawMaterialCode + " ");
-
             RawMaterial rawMaterial8 = RawMaterialBL.SearchRawMaterialByNameBL("Banana");
-            Console.WriteLine(rawMaterial8.RawMaterialID + " " + rawMaterial8.RawMaterialName + " " + rawMaterial8.RawMaterialCode + " ");*/
+            Console.WriteLine(rawMaterial8.RawMaterialID + " " + rawMaterial8.RawMaterialName + " " + rawMaterial8.RawMaterialCode + " ");
 
 
             Product product1 = new Product() { ProductID = "P101", ProductName = "Mango", ProductCode = "MGO", ProductMFD = "12-09-19", ProductEXP = "12-09-20", ProductType = "mocktail" };
@@ -101,7 +96,7 @@ namespace Inventory.PresentationLayer
             Console.WriteLine(product7.ProductID + " " + product7.ProductName + " " + product7.ProductCode + " ");
 
             Product product8 = ProductBL.SearchProductByCodeBL("MAO");
-            Console.WriteLine(product8.ProductID + " " + product8.ProductName + " " + product8.ProductCode + " ");
+            Console.WriteLine(product8.ProductID + " " + product8.ProductName + " " + product8.ProductCode + " ");*/
         }
     }
 }
