@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,14 +17,14 @@ namespace Inventory.BusinessLayer
             StringBuilder sb = new StringBuilder();
             bool validRawMaterial = true;
 
-            foreach (RawMaterial item in RawMaterialDAL.rawMaterialList)
+            /*foreach (RawMaterial item in RawMaterialDAL.rawMaterialList)
             {
                 if (item.RawMaterialID == rawMaterial.RawMaterialID)
                 {
                     validRawMaterial = false;
                     sb.Append("\nRaw Material ID already exists");
                 }
-            }
+            }*/
             if (rawMaterial.RawMaterialID == String.Empty || rawMaterial.RawMaterialID.Length > 5)
             {
                 validRawMaterial = false;
@@ -88,7 +88,7 @@ namespace Inventory.BusinessLayer
             bool rawMaterialDeleted = false;
             try
             {
-                if (deleteRawMaterialID.Length > 0 && deleteRawMaterialID.Length < 5)
+                if (deleteRawMaterialID.Length > 0 && deleteRawMaterialID.Length < 6)
                 {
                     RawMaterialDAL rawMaterialDAL = new RawMaterialDAL();
                     rawMaterialDeleted = rawMaterialDAL.DeleteRawMaterialDAL(deleteRawMaterialID);
@@ -97,7 +97,6 @@ namespace Inventory.BusinessLayer
                 {
                     throw new InventoryException("Invalid Raw Material ID");
                 }
-
             }
             catch (InventoryException)
             {
@@ -118,7 +117,7 @@ namespace Inventory.BusinessLayer
                 if (ValidateRawMaterial(updateRawMaterial))
                 {
                     RawMaterialDAL rawMaterialDAL = new RawMaterialDAL();
-                    rawMaterialUpdated = RawMaterialDAL.UpdateRawMaterialDAL(updateRawMaterial);
+                    rawMaterialUpdated = rawMaterialDAL.UpdateRawMaterialDAL(updateRawMaterial);
                 }
             }
             catch (InventoryException)
