@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -75,7 +75,6 @@ namespace Inventory.DataAccessLayer
                 throw new InventoryException(ex.Message);
             }
             return rawMaterialUpdated;
-
         }
 
         public List<RawMaterial> GetAllRawMaterialsDAL()
