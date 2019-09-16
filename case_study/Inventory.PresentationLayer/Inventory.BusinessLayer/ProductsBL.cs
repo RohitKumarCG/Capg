@@ -47,10 +47,10 @@ namespace Inventory.BusinessLayer
                 }
             }
             Regex regex2 = new Regex("^[a-zA-Z]+$");
-            if (!regex2.IsMatch(product.ProductName) || product.ProductCode == String.Empty || product.ProductCode.Length > 4)
+            if (!regex2.IsMatch(product.ProductCode) || product.ProductCode == String.Empty || product.ProductCode.Length > 4)
             {
                 validProduct = false;
-                sb.Append("\nInvalid Raw Material Code");
+                sb.Append("\nInvalid Product Code");
             }
             DateTime mfd = Convert.ToDateTime(product.ProductMFD);
             DateTime now = DateTime.Now;
@@ -69,11 +69,11 @@ namespace Inventory.BusinessLayer
                 sb.Append("\nInvalid Expiry Date");
             }
             
-            if(product.ProductType.ToLower() != "juice" || product.ProductType.ToLower() == "energy drink" || product.ProductType.ToLower() == "tonic water" || product.ProductType.ToLower() == "mocktail" || product.ProductType.ToLower() is "softdrink")
+            /*if(product.ProductType.ToLower() != "juice" || product.ProductType.ToLower() == "energy drink" || product.ProductType.ToLower() == "tonic water" || product.ProductType.ToLower() == "mocktail" || product.ProductType.ToLower() is "softdrink")
             {
                 validProduct = false;
                 sb.Append("\nInvalid Product Type");
-            }
+            }*/
 
             if (validProduct == false)
             {
